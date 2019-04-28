@@ -1,14 +1,12 @@
-import { FlexLayoutModule } from '@angular/flex-layout';
-
-import {MediaMatcher} from '@angular/cdk/layout';
-import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
+import { MediaMatcher } from '@angular/cdk/layout';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'side',
+  templateUrl: './side.html',
+  styleUrls: ['./side.scss']
 })
-export class HomeComponent implements OnInit {
+export class SideComponent implements OnInit {
   mobileQuery: MediaQueryList;
 
   fillerNav = Array.from({length: 5}, (_, i) => `Nav Item ${i + 1}`);

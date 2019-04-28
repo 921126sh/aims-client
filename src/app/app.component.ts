@@ -1,6 +1,5 @@
 import { Component, HostListener } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
 import { filter, map, mergeMap } from 'rxjs/operators';
 import { AppConfig } from '../environments/environment';
 import { ElectronService } from './providers/electron.service';
@@ -30,12 +29,10 @@ export class AppComponent {
 
   constructor(
     public electronService: ElectronService,
-    private translate: TranslateService,
     private titleService: Title,
     private router: Router,
     private activatedRoute: ActivatedRoute) {
 
-    translate.setDefaultLang('en');
     console.log('AppConfig', AppConfig);
 
     if (electronService.isElectron()) {
