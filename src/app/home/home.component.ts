@@ -11,8 +11,8 @@ import { UserService } from './services/user.service';
 })
 export class HomeComponent implements OnInit {
   mobileQuery: MediaQueryList;
-
-  fillerNav = Array.from({length: 5}, (_, i) => `Nav Item ${i + 1}`);
+  isExpanded: boolean = false;
+  fillerNav = Array.from({length: 5}, (_, i) => `PROJECT ${i + 1}`);
 
   fillerContent = Array.from({length: 5}, () =>
       `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut

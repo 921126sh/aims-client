@@ -7,3 +7,12 @@ html, body {
 
   height: 100%;
 }
+
+.wrapper {
+  margin-right: auto; /* 1 */
+  margin-left:  auto; /* 1 */
+
+  max-width: 960px; /* 2 */
+
+  padding: 10px; /* 3 */
+}
