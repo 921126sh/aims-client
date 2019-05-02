@@ -11,7 +11,7 @@ Currently runs with:
 ## 규칙
 1. 의무적인 주석을 달지 않습니다.
 2. 코드로 주석을 대체할 수 있도록 작성합니다.
-3. 
+3. ..../
 
 ## 시작하기
 
@@ -43,7 +43,7 @@ npm install -g @angular/cli
 |`npm run ng:serve:web`| 브라우저모드로 실행 |
 |`npm run build`| 앱 빌드, 빌드파일은 /dist 폴더에 생성됩니다. |
 |`npm run build:prod`| Angular aot를 포함하여 빌드합니다. 빌드파일은 /dist 폴더에 생성됩니다. |
-|`npm run electron:local`| 앱 빌드 후 일렉트론을 실행합니다.
+|`npm run electron:local`| 앱 빌드 후 일렉트론을 실행합니다. |
 |`npm run electron:linux`| 리눅스 환경의 앱을 생성합니다. |
 |`npm run electron:windows`| 윈도우 환경의 앱을 생성합니다. |
 |`npm run electron:mac`|  맥 환경의 앱을 생성합니다. 파일이름은 `.app`으로 생성됩니다. |
