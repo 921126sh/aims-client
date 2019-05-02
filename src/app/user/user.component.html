@@ -1,0 +1,79 @@
+<div class="app-container">
+  <mat-toolbar color="primary">
+    <span>사용자 관리</span>
+    <span class="spacer"></span>
+    새로고침:
+    <button mat-icon-button (click)="refresh()">
+      <mat-icon>refresh</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <div class="container mat-elevation-z8">
+
+    <div class="form">
+      <mat-form-field floatPlaceholder="never" color="accent">
+        <input matInput #filter placeholder="검색">
+      </mat-form-field>
+    </div>
+
+    <mat-table #table [dataSource]="dataSource" matSort class="mat-cell">
+
+      <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- ID Column -->
+      <ng-container matColumnDef="userId">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>userId</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{row.userId}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="userNm">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>userNm</mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.userNm}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="userPw">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>userPw</mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.userPw}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="userDiv">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>userDiv</mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.userDiv}}</mat-cell>
+      </ng-container>
+
+      <!-- actions -->
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef>
+          <button mat-icon-button color="primary" (click)="addNew()">
+            <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
+          </button>
+        </mat-header-cell>
+
+        <mat-cell *matCellDef="let row; let i=index;">
+          <button mat-icon-button color="accent"
+            (click)="startEdit(i, row.userId, row.userNm, row.userPw, row.userDiv)">
+            <mat-icon aria-label="Edit">edit</mat-icon>
+          </button>
+
+          <button mat-icon-button color="accent" (click)="deleteItem(i, row.userId, row.userNm, row.userPw, row.userDiv)">
+            <mat-icon aria-label="Delete">delete</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+
+    <div class="no-results" [style.display]="dataSource.renderedData.length == 0 ? '' : 'none'">
+      No results
+    </div>
+
+    <mat-paginator #paginator [length]="dataSource.filteredData.length" [pageIndex]="0" [pageSize]="10"
+      [pageSizeOptions]="[5, 10, 25, 100]">
+    </mat-paginator>
+  </div>
+
+</div>

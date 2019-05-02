@@ -16,10 +16,7 @@ export class User {
         public userId: string,
         public userNm: string,
         public userPw: string,
-        public userIp: string,
-        public validExpDate: string,
-        public pwdChgDate: string,
-        public pwdExpiredRemainDay: string
+        public userDiv: string
     ) { }
 
     /**
@@ -29,7 +26,7 @@ export class User {
      * @returns 생성된 객체
      */
     static create(src: User): User {
-        let newObzect = new User(src.userId, src.userNm, null, src.userIp, src.validExpDate, src.pwdChgDate ,src.pwdExpiredRemainDay);
+        let newObzect = new User(src.userId, src.userNm, src.userPw, src.userDiv);
         return newObzect;
     }
 }

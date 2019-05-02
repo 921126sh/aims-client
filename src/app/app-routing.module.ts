@@ -6,11 +6,11 @@ import { UserComponent } from './user/user.component';
 
 
 const routes: Routes = [
-    // {
-	// 	path: '',
-	// 	redirectTo: '/login',
-	// 	pathMatch: 'full'
-	// },
+    {
+		path: '',
+		redirectTo: '/user',
+		pathMatch: 'full'
+	},
     {
         path: 'home',
         component: HomeComponent,

@@ -28,9 +28,14 @@ import { SideLayoutComponent } from './common/side-layout.component';
 import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
 
+// 다이얼로그
+import {AddDialogComponent} from './common/dialogs/add/add.dialog.component';
+import {EditDialogComponent} from './common/dialogs/edit/edit.dialog.component';
+import {DeleteDialogComponent} from './common/dialogs/delete/delete.dialog.component';
+
 export function loadConfig(config: AppConfigService) { return () => config.load(); };
 export function customHttpService(config: AppConfigService, handler: HttpHandler) {
-	return new RestService(config, handler);
+  return new RestService(config, handler);
 }
 
 // 메터리얼
@@ -40,7 +45,12 @@ import {
   MatIconModule,
   MatListModule,
   MatSidenavModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatDialogModule, 
+  MatInputModule,
+  MatPaginatorModule,
+  MatSortModule,
+  MatTableModule
 } from '@angular/material';
 
 @NgModule({
@@ -49,7 +59,10 @@ import {
     SideLayoutComponent,
     HomeComponent,
     UserComponent,
-    WebviewDirective
+    WebviewDirective,
+    AddDialogComponent,
+    EditDialogComponent,
+    DeleteDialogComponent
   ],
   imports: [
     BlockUIModule.forRoot(),
@@ -59,6 +72,11 @@ import {
     MatSidenavModule,
     MatButtonModule,
     MatNativeDateModule,
+    MatDialogModule, 
+    MatInputModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatTableModule,
 
     BrowserModule,
     FormsModule,
@@ -66,26 +84,30 @@ import {
     AppRoutingModule,
     BrowserAnimationsModule
   ],
-  
+  entryComponents: [
+    AddDialogComponent,
+    EditDialogComponent,
+    DeleteDialogComponent
+  ],
   providers: [
     ElectronService,
     GlobalRefService,
-		AppConfigService,
-		{
-			provide: APP_INITIALIZER,
-			useFactory: loadConfig,
-			deps: [AppConfigService],
-			multi: true
-		},
-		{
-			provide: RestService,
-			useFactory: customHttpService,
-			deps: [AppConfigService, HttpHandler]
-		},
-		{
-			provide: COMPOSITION_BUFFER_MODE,
-			useValue: false
-		}
+    AppConfigService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: loadConfig,
+      deps: [AppConfigService],
+      multi: true
+    },
+    {
+      provide: RestService,
+      useFactory: customHttpService,
+      deps: [AppConfigService, HttpHandler]
+    },
+    {
+      provide: COMPOSITION_BUFFER_MODE,
+      useValue: false
+    }
   ],
   bootstrap: [AppComponent]
 })
