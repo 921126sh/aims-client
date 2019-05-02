@@ -1,12 +1,12 @@
-<mat-drawer-container class="example-container mat-typography" autosize>
+<mat-drawer-container class="layout-container mat-typography" autosize>
   <mat-drawer #drawer mode="side" disableClose="true" opened="true">
 
     <mat-nav-list>
-      <mat-list-item style="background: rgba(209,196,233,.3); border-bottom: 1px solid #673AB7;">
+      <mat-list-item routerLink="/home" routerLinkActive="active">
         <mat-icon mat-list-icon>home</mat-icon>
         <h4 mat-line *ngIf="isExpanded">홈</h4>
       </mat-list-item>
-      <mat-list-item>
+      <mat-list-item routerLink="/user" routerLinkActive="active" >
         <mat-icon mat-list-icon>person</mat-icon>
         <h4 mat-line *ngIf="isExpanded">사용자</h4>
       </mat-list-item>

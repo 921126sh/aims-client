@@ -12,7 +12,7 @@ const routes: Routes = [
 	// 	pathMatch: 'full'
 	// },
     {
-        path: '',
+        path: 'home',
         component: HomeComponent,
         data: { title: '홈' }
     },
