@@ -38,14 +38,14 @@ npm install -g @angular/cli
 
 ## 커멘드 명령어
 
-|Command|Description|
+|  명령어  |설명|
 |--|--|
-|`npm run ng:serve:web`| Execute the app in the browser |
-|`npm run build`| Build the app. Your built files are in the /dist folder. |
-|`npm run build:prod`| Build the app with Angular aot. Your built files are in the /dist folder. |
-|`npm run electron:local`| Builds your application and start electron
-|`npm run electron:linux`| Builds your application and creates an app consumable on linux system |
-|`npm run electron:windows`| On a Windows OS, builds your application and creates an app consumable in windows 32/64 bit systems |
-|`npm run electron:mac`|  On a MAC OS, builds your application and generates a `.app` file of your application that can be run on Mac |
+|`npm run ng:serve:web`| 브라우저모드로 실행 |
+|`npm run build`| 앱 빌드, 빌드파일은 /dist 폴더에 생성됩니다. |
+|`npm run build:prod`| Angular aot를 포함하여 빌드합니다. 빌드파일은 /dist 폴더에 생성됩니다. |
+|`npm run electron:local`| 앱 빌드 후 일렉트론을 실행합니다.
+|`npm run electron:linux`| 리눅스 환경의 앱을 생성합니다. |
+|`npm run electron:windows`| 윈도우 환경의 앱을 생성합니다. |
+|`npm run electron:mac`|  맥 환경의 앱을 생성합니다. 파일이름은 `.app`으로 생성됩니다. |
 
 **해당 앱은 /dist폴더와 노드모듈이 포함되어야만 실행 가능합니다.**
