@@ -1,0 +1,30 @@
+<mat-drawer-container class="example-container mat-typography" autosize>
+  <mat-drawer #drawer mode="side" disableClose="true" opened="true">
+
+    <mat-nav-list>
+      <mat-list-item style="background: rgba(209,196,233,.3); border-bottom: 1px solid #673AB7;">
+        <mat-icon mat-list-icon>home</mat-icon>
+        <h4 mat-line *ngIf="isExpanded">홈</h4>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon mat-list-icon>person</mat-icon>
+        <h4 mat-line *ngIf="isExpanded">사용자</h4>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon mat-list-icon>people</mat-icon>
+        <h4 mat-line *ngIf="isExpanded">역할</h4>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon mat-list-icon>menu</mat-icon>
+        <h4 mat-line *ngIf="isExpanded">메뉴</h4>
+      </mat-list-item>
+    </mat-nav-list>
+
+    <button mat-mini-fab (click)="isExpanded = !isExpanded" color="warn"
+      style="position: absolute; bottom:0; margin: 10px;">
+      <mat-icon aria-label="Menu">menu</mat-icon>
+    </button>
+  </mat-drawer>
+
+  <router-outlet></router-outlet>
+</mat-drawer-container>

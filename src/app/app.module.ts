@@ -4,7 +4,7 @@ import '../polyfills';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { FormsModule, COMPOSITION_BUFFER_MODE } from '@angular/forms';
-import { HttpClientModule, HttpClient, HttpHandler } from '@angular/common/http';
+import { HttpClientModule, HttpHandler } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // core
@@ -24,7 +24,9 @@ import { WebviewDirective } from './directives/webview.directive';
 
 // 컴포넌트
 import { AppComponent } from './app.component';
+import { SideLayoutComponent } from './common/side-layout.component';
 import { HomeComponent } from './home/home.component';
+import { UserComponent } from './user/user.component';
 
 export function loadConfig(config: AppConfigService) { return () => config.load(); };
 export function customHttpService(config: AppConfigService, handler: HttpHandler) {
@@ -44,7 +46,9 @@ import {
 @NgModule({
   declarations: [
     AppComponent,
+    SideLayoutComponent,
     HomeComponent,
+    UserComponent,
     WebviewDirective
   ],
   imports: [

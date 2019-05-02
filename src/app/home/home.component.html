@@ -1,86 +1,60 @@
-<mat-drawer-container class="example-container mat-typography" autosize>
-    <mat-drawer #drawer mode="side" disableClose="true" opened="true">
 
-        <mat-nav-list>
-            <mat-list-item>
-                <mat-icon mat-list-icon>home</mat-icon>
-                <h4 mat-line *ngIf="isExpanded">PROJECT A</h4>
-            </mat-list-item>
-            <mat-list-item>
-                <mat-icon mat-list-icon>assignment</mat-icon>
-                <h4 mat-line *ngIf="isExpanded">PROJECT B</h4>
-            </mat-list-item>
-            <mat-list-item>
-                <mat-icon mat-list-icon>domain</mat-icon>
-                <h4 mat-line *ngIf="isExpanded">PROJECT C</h4>
-            </mat-list-item>
-            <mat-list-item>
-                <mat-icon mat-list-icon>folder_shared</mat-icon>
-                <h4 mat-line *ngIf="isExpanded">PROJECT X</h4>
-            </mat-list-item>
-        </mat-nav-list>
 
-        <button mat-mini-fab (click)="isExpanded = !isExpanded" color="warn"
-            style="position: absolute; bottom:0; margin: 10px;">
-            <mat-icon aria-label="Menu">menu</mat-icon>
-        </button>
-    </mat-drawer>
-
-    <div class="section no-pad-bot" id="index-banner">
-        <div class="container">
-            <br><br>
-            <h1 class="header center orange-text">A.I.M.S 프로젝트</h1>
-            <div class="row center">
-                <h5 class="header col s12 light">App Integrae Manage System</h5>
-            </div>
-            <div class="row center">
-                <a href="http://materializecss.com/getting-started.html" id="download-button"
-                    class="btn-large waves-effect waves-light orange">실행하기</a>
-            </div>
-            <br><br>
-        </div>
-    </div>
-
+  <div class="section no-pad-bot" id="index-banner">
     <div class="container">
-        <div class="section">
-
-            <!--   Icon Section   -->
-            <div class="row">
-                <div class="col s12 m4">
-                    <div class="icon-block">
-                        <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
-                        <h5 class="center">AIMS는 빠르고 편리성을 제공합니다.</h5>
-
-                        <p class="light">분산되어 있는 각종 프로젝트를 한 곳에 모아 빠른 접근과 편리한 운영을 경험 할 수 있습니다.</p>
-                    </div>
-                </div>
-
-                <div class="col s12 m4">
-                    <div class="icon-block">
-                        <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
-                        <h5 class="center">사용자 편의 성</h5>
-
-                        <p class="light">
-                            사용자의 편리성에 중심을 둔 해당 프로젝트는 멋진 사용자 경험을 보여줍니다.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col s12 m4">
-                    <div class="icon-block">
-                        <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>
-                        <h5 class="center">페이지 설정</h5>
-
-                        <p class="light">페이지의 컨텐츠, 배포 등 각종 설정을 진행 할 수 있습니다. 이 목록은 해당 페이지의 관리자 역할을 가진 사용자에게만 보여집니다.</p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <br><br>
+      <br><br>
+      <h1 class="header center orange-text">A.I.M.S 프로젝트</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">App Integrate Manage System</h5>
+      </div>
+      <div class="row center">
+        <a href="http://materializecss.com/getting-started.html" id="download-button"
+          class="btn-large waves-effect waves-light orange">실행하기</a>
+      </div>
+      <br><br>
     </div>
+  </div>
 
-    <footer class="page-footer orange" style="
+  <div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
+            <h5 class="center">AIMS는 빠르고 편리성을 제공합니다.</h5>
+
+            <p class="light">분산되어 있는 각종 프로젝트를 한 곳에 모아 빠른 접근과 편리한 운영을 경험 할 수 있습니다.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
+            <h5 class="center">사용자 편의 성</h5>
+
+            <p class="light">
+              사용자의 편리성에 중심을 둔 해당 프로젝트는 멋진 사용자 경험을 보여줍니다.
+            </p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>
+            <h5 class="center">페이지 설정</h5>
+
+            <p class="light">페이지의 컨텐츠, 배포 등 각종 설정을 진행 할 수 있습니다. 이 목록은 해당 페이지의 관리자 역할을 가진 사용자에게만 보여집니다.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <br><br>
+  </div>
+
+  <footer class="page-footer orange" style="
     position: absolute;
     left: 0;
     bottom: 0;
@@ -91,34 +65,32 @@
     background: blue;
     bottom: 4px;
 ">
-        <div class="container">
-            <div class="row">
-                <div class="col l6 s12">
-                    <h5 class="white-text">Company (주)XXX</h5>
-                    <p class="grey-text text-lighten-4">해당 시스템은 개발부에서 관리합니다. 각종 버그사항 및 문의사항은 개발부에 연락주시기 바랍니다.</p>
-
-
-                </div>
-                <div class="col l3 s12">
-                    <h5 class="white-text">팀 원</h5>
-                    <ul>
-                        <li><a class="white-text" href="#!">세종대왕</a></li>
-                        <li><a class="white-text" href="#!">홍길동</a></li>
-                    </ul>
-                </div>
-                <div class="col l3 s12">
-                    <h5 class="white-text">Connect</h5>
-                    <ul>
-                        <li><a class="white-text" href="#!">AIMS App</a></li>
-                        <li><a class="white-text" href="#!">AIMS Web</a></li>
-                    </ul>
-                </div>
-            </div>
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Company (주)XXX</h5>
+          <p class="grey-text text-lighten-4">해당 시스템은 개발부에서 관리합니다. 각종 버그사항 및 문의사항은 개발부에 연락주시기 바랍니다.</p>
         </div>
-        <div class="footer-copyright">
-            <div class="container">
-                Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">SeongHyun KIM</a>
-            </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">팀 원</h5>
+          <ul>
+            <li><a class="white-text" href="#!">세종대왕</a></li>
+            <li><a class="white-text" href="#!">홍길동</a></li>
+          </ul>
         </div>
-    </footer>
-</mat-drawer-container>
+        <div class="col l3 s12">
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a class="white-text" href="#!">AIMS App</a></li>
+            <li><a class="white-text" href="#!">AIMS Web</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">SeongHyun KIM</a>
+      </div>
+    </div>
+  </footer>
+
