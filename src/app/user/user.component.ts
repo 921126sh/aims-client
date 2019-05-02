@@ -17,7 +17,6 @@ import { RestService } from "../core/rest.service";
   styleUrls: ['./user.component.scss'],
   providers: [UserService, RestService]
 })
-
 export class UserComponent implements OnInit {
   displayedColumns = ['userId', 'userNm', 'userPw', 'userDiv', 'actions'];
   index: number;
@@ -29,7 +28,8 @@ export class UserComponent implements OnInit {
     public dialog: MatDialog,
     public userService: UserService,
     public restService: RestService
-  ) { }
+  ) { 
+  }
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -43,28 +43,27 @@ export class UserComponent implements OnInit {
     this.loadData();
   }
 
-  addNew(issue: User) {
+  addNew(user: User) {
     const dialogRef = this.dialog.open(AddDialogComponent, {
-      data: { issue: issue }
+      data: { issue: user }
     });
 
+    // 다이얼로그 종료 후 새로운 열을 추가한다.
     dialogRef.afterClosed().subscribe(result => {
       if (result === 1) {
-        // After dialog is closed we're doing frontend updates
-        // For add we're just pushing a new row inside UserService
         this.exampleDatabase.dataChange.value.push(this.userService.getDialogData());
         this.refreshTable();
       }
     });
   }
 
-  startEdit(i: number, id: string, title: string, state: string, url: string, created_at: string, updated_at: string) {
-    this.userId = id;
+  startEdit(i: number, userId: string, userNm: string, userPw: string, userDiv: string) {
+    this.userId = userId;
     // index row is used just for debugging proposes and can be removed
     this.index = i;
     console.log(this.index);
     const dialogRef = this.dialog.open(EditDialogComponent, {
-      data: { id: id, title: title, state: state, url: url, created_at: created_at, updated_at: updated_at }
+      data: { userId: userId, userNm: userNm, userPw: userPw, userDiv: userDiv }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -79,11 +78,11 @@ export class UserComponent implements OnInit {
     });
   }
 
-  deleteItem(i: number, id: string, title: string, state: string, url: string) {
+  deleteItem(i: number, userId: string, userNm: string, userPw: string, userDiv: string) {
     this.index = i;
-    this.userId = id;
+    this.userId = userId;
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
-      data: { id: id, title: title, state: state, url: url }
+      data: { userId: userId, userNm: userNm, userPw: userPw, userDiv: userDiv }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -105,26 +104,7 @@ export class UserComponent implements OnInit {
   }
 
 
-  /*   // If you don't need a filter or a pagination this can be simplified, you just use code from else block
-    // OLD METHOD:
-    // if there's a paginator active we're using it for refresh
-    if (this.dataSource._paginator.hasNextPage()) {
-      this.dataSource._paginator.nextPage();
-      this.dataSource._paginator.previousPage();
-      // in case we're on last page this if will tick
-    } else if (this.dataSource._paginator.hasPreviousPage()) {
-      this.dataSource._paginator.previousPage();
-      this.dataSource._paginator.nextPage();
-      // in all other cases including active filter we do it like this
-    } else {
-      this.dataSource.filter = '';
-      this.dataSource.filter = this.filter.nativeElement.value;
-    }*/
-
-
-
   public loadData() {
-    
     this.exampleDatabase = new UserService(this.restService);
     this.dataSource = new ExampleDataSource(this.exampleDatabase, this.paginator, this.sort);
     fromEvent(this.filter.nativeElement, 'keyup')
@@ -153,7 +133,7 @@ export class ExampleDataSource extends DataSource<User> {
   filteredData: User[] = [];
   renderedData: User[] = [];
 
-  constructor(public _exampleDatabase: UserService,
+  constructor(public _userService: UserService,
     public _paginator: MatPaginator,
     public _sort: MatSort) {
     super();
@@ -165,18 +145,18 @@ export class ExampleDataSource extends DataSource<User> {
   connect(): Observable<User[]> {
     // Listen for any changes in the base data, sorting, filtering, or pagination
     const displayDataChanges = [
-      this._exampleDatabase.dataChange,
+      this._userService.dataChange,
       this._sort.sortChange,
       this._filterChange,
       this._paginator.page
     ];
 
-    this._exampleDatabase.getAllUsers();
+    this._userService.getAllUsers();
 
 
     return merge(...displayDataChanges).pipe(map(() => {
       // Filter data
-      this.filteredData = this._exampleDatabase.data.slice().filter((issue: User) => {
+      this.filteredData = this._userService.data.slice().filter((issue: User) => {
         const searchStr = (issue.userId + issue.userNm + issue.userPw + issue.userDiv).toLowerCase();
         return searchStr.indexOf(this.filter.toLowerCase()) !== -1;
       });
@@ -219,3 +199,19 @@ export class ExampleDataSource extends DataSource<User> {
     });
   }
 }
+
+/*   // If you don't need a filter or a pagination this can be simplified, you just use code from else block
+   // OLD METHOD:
+   // if there's a paginator active we're using it for refresh
+   if (this.dataSource._paginator.hasNextPage()) {
+     this.dataSource._paginator.nextPage();
+     this.dataSource._paginator.previousPage();
+     // in case we're on last page this if will tick
+   } else if (this.dataSource._paginator.hasPreviousPage()) {
+     this.dataSource._paginator.previousPage();
+     this.dataSource._paginator.nextPage();
+     // in all other cases including active filter we do it like this
+   } else {
+     this.dataSource.filter = '';
+     this.dataSource.filter = this.filter.nativeElement.value;
+   }*/
