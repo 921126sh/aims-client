@@ -15,7 +15,7 @@ export class FacadeService {
     constructor(private injector: Injector) { }
 
     // TODO 굳이 여기까지 사용해야 할까? 고민 해보자
-    // getUsers() {
-    //     return this.userService.getUsers();
-    // }
+    getUsers() {
+        return this.userService.getUsers();
+    }
 }
