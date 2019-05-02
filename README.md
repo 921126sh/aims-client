@@ -1,8 +1,3 @@
-[![Travis Build Status][build-badge]][build]
-[![Dependencies Status][dependencyci-badge]][dependencyci]
-[![Make a pull request][prs-badge]][prs]
-[![License](http://img.shields.io/badge/Licence-MIT-brightgreen.svg)](LICENSE.md)
-
 # 소개
 
 개인, 범용 프로젝트 관리 시스템 입니다.
@@ -20,13 +15,13 @@ Currently runs with:
 
 ## 시작하기
 
-Clone this repository locally :
+해당 레파지토리를 클론 :
 
 ``` bash
-git clone https://github.com/maximegris/angular-electron.git
+git clone https://github.com/esmoney/aims-client.git
 ```
 
-Install dependencies with npm :
+종속성 설치 :
 
 ``` bash
 npm install
