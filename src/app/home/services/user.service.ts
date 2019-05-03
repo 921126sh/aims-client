@@ -11,7 +11,7 @@ export class UserService {
      */
     private usersUrl: string = 'users';
 
-    constructor(private restService: RestService) { }
+    constructor(private restService?: RestService) { }
 
     dataChange: BehaviorSubject<User[]> = new BehaviorSubject<User[]>([]);
     
