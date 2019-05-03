@@ -2,7 +2,7 @@ import { Component, ElementRef, ViewChild, OnInit, Injector } from "@angular/cor
 import { HttpClient } from "@angular/common/http";
 import { MatDialog, MatPaginator, MatSort } from "@angular/material";
 import { merge, Observable, BehaviorSubject, fromEvent } from "rxjs";
-import { map, ignoreElements } from "rxjs/operators";
+import { map } from "rxjs/operators";
 import { DataSource } from "@angular/cdk/table";
 import { EditDialogComponent } from "../common/dialogs/edit/edit.dialog.component";
 import { AddDialogComponent } from "../common/dialogs/add/add.dialog.component";
@@ -146,7 +146,6 @@ export class UserComponent implements OnInit {
     });
   }
 
-
   /**
    * 테이블을 새로고침한다.
    */
@@ -160,23 +159,18 @@ export class UserComponent implements OnInit {
  */
 export class DataProcHelper extends DataSource<User> {
   _filterChange = new BehaviorSubject('');
-
-  get filter(): string {
-    return this._filterChange.value;
-  }
-
-  set filter(filter: string) {
-    this._filterChange.next(filter);
-  }
+  get filter(): string { return this._filterChange.value; }
+  set filter(filter: string) { this._filterChange.next(filter); }
 
   filteredData: User[] = [];
   renderedData: User[] = [];
 
   /**
-   * Creates an instance of data proc helper.
-   * @param _userService 
-   * @param _paginator 
-   * @param _sort 
+   * 기본 생성자다.
+   * 
+   * @param _userService 사용자 서비스
+   * @param _paginator 페이지기
+   * @param _sort 정렬기
    */
   constructor(
     public _userService: UserService,
@@ -272,4 +266,5 @@ export class DataProcHelper extends DataSource<User> {
    } else {
      this.dataSource.filter = '';
      this.dataSource.filter = this.filter.nativeElement.value;
-   }*/
+   }
+*/
