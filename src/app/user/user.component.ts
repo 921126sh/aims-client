@@ -21,7 +21,6 @@ import { RestService } from "../core/rest.service";
 export class UserComponent implements OnInit {
   readonly displayedColumns = ['userId', 'userNm', 'userPw', 'userDiv', 'actions'];
   selRowIdx: number;
-  userDatabase: UserService | null;
   dataSource: DataProcHelper | null;
   userId: string;
 
@@ -32,15 +31,16 @@ export class UserComponent implements OnInit {
   /**
    * 기본 생성자다.
    * 
-   * @param {HttpClient} httpClient http 클라이언트
-   * @param {MatDialog} matDialog 메터리얼 다이얼로그
-   * @param {UserService} userService 사용자 서비스
-   * @param {RestService} restService 레스트 서비스
+   * @param httpClient http 클라이언트
+   * @param matDialog 메터리얼 다이얼로그
+   * @param restService 레스트 서비스
+   * @param userService 사용자 서비스
    */
   constructor(
     public httpClient: HttpClient,
     public matDialog: MatDialog,
-    public restService: RestService
+    public restService: RestService,
+    private userService: UserService
   ) {
   }
 
@@ -62,8 +62,7 @@ export class UserComponent implements OnInit {
    * 사용자 목록을 조회한다.
    */
   public getRows() {
-    this.userDatabase = new UserService(this.restService);
-    this.dataSource = new DataProcHelper(this.userDatabase, this.matPaginator, this.matSort);
+    this.dataSource = new DataProcHelper(this.userService, this.matPaginator, this.matSort);
     fromEvent(this.filter.nativeElement, 'keyup')
       // .debounceTime(150)
       // .distinctUntilChanged()
@@ -88,7 +87,7 @@ export class UserComponent implements OnInit {
     // 다이얼로그 종료 후 새로운 열을 추가한다.
     dialogRef.afterClosed().subscribe(result => {
       if (result === 1) {
-        this.userDatabase.dataChange.value.push(this.userDatabase.getDialogData());
+        this.userService.dataChange.value.push(this.userService.getDialogData());
         this.refreshTable();
       }
     });
@@ -113,9 +112,9 @@ export class UserComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result === 1) {
         // 편집 내용을 사용하는 경우 실제값과 다를 수있기 때문에, ID로 UserService 내부에 행을 찾는다.
-        const foundIndex = this.userDatabase.dataChange.value.findIndex(x => x.userId === this.userId);
+        const foundIndex = this.userService.dataChange.value.findIndex(x => x.userId === this.userId);
         // 다음 다이얼 로그의 데이터 (입력 한 값)를 사용하여 행을 업데이트한다.
-        this.userDatabase.dataChange.value[foundIndex] = this.userDatabase.getDialogData();
+        this.userService.dataChange.value[foundIndex] = this.userService.getDialogData();
         // 마지막으로 테이블 새로고침을 한다.
         this.refreshTable();
       }
@@ -140,8 +139,8 @@ export class UserComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result === 1) {
-        const foundIndex = this.userDatabase.dataChange.value.findIndex((x: any) => x.id === this.userId);
-        this.userDatabase.dataChange.value.splice(foundIndex, 1);
+        const foundIndex = this.userService.dataChange.value.findIndex((x: any) => x.id === this.userId);
+        this.userService.dataChange.value.splice(foundIndex, 1);
         this.refreshTable();
       }
     });
@@ -252,7 +251,6 @@ export class DataProcHelper extends DataSource<User> {
       return (valueA < valueB ? -1 : 1) * (this._sort.direction === 'asc' ? 1 : -1);
     });
   }
-
 
   /**
    * @ignore
