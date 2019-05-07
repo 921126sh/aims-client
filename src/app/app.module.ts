@@ -3,7 +3,7 @@ import '../polyfills';
 // angular
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
-import { FormsModule, COMPOSITION_BUFFER_MODE } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, COMPOSITION_BUFFER_MODE } from '@angular/forms';
 import { HttpClientModule, HttpHandler } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -29,9 +29,9 @@ import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
 
 // 다이얼로그
-import {AddDialogComponent} from './user/dialogs/add/add.dialog.component';
-import {EditDialogComponent} from './user/dialogs/edit/edit.dialog.component';
-import {DeleteDialogComponent} from './user/dialogs/delete/delete.dialog.component';
+import {UserAddDialogComponent} from './user/dialogs/add/user-add.dialog';
+import {EditDialogComponent} from './user/dialogs/edit/user-edit.dialog';
+import {DeleteDialogComponent} from './user/dialogs/delete/user-delete.dialog';
 
 export function loadConfig(config: AppConfigService) { return () => config.load(); };
 export function customHttpService(config: AppConfigService, handler: HttpHandler) {
@@ -50,7 +50,9 @@ import {
   MatInputModule,
   MatPaginatorModule,
   MatSortModule,
-  MatTableModule
+  MatTableModule,
+  MatFormFieldModule,
+  MatSelectModule
 } from '@angular/material';
 
 @NgModule({
@@ -60,9 +62,9 @@ import {
     HomeComponent,
     UserComponent,
     WebviewDirective,
-    AddDialogComponent,
+    UserAddDialogComponent,
     EditDialogComponent,
-    DeleteDialogComponent
+    DeleteDialogComponent,
   ],
   imports: [
     BlockUIModule.forRoot(),
@@ -77,15 +79,18 @@ import {
     MatPaginatorModule,
     MatSortModule,
     MatTableModule,
+    MatFormFieldModule,
+    MatSelectModule,
 
-    BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
+    BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule
   ],
   entryComponents: [
-    AddDialogComponent,
+    UserAddDialogComponent,
     EditDialogComponent,
     DeleteDialogComponent
   ],

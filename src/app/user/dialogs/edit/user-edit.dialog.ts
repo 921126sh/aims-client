@@ -5,8 +5,8 @@ import {FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-baza.dialog',
-  templateUrl: '../../dialogs/edit/edit.dialog.html',
-  styleUrls: ['../../dialogs/edit/edit.dialog.css']
+  templateUrl: '../../dialogs/edit/user-edit.dialog.html',
+  styleUrls: ['../../dialogs/edit/user-edit.dialog.css']
 })
 export class EditDialogComponent {
 

@@ -5,8 +5,8 @@ import {Component, Inject} from '@angular/core';
 
 @Component({
   selector: 'app-delete.dialog',
-  templateUrl: '../../dialogs/delete/delete.dialog.html',
-  styleUrls: ['../../dialogs/delete/delete.dialog.css']
+  templateUrl: '../../dialogs/delete/user-delete.dialog.html',
+  styleUrls: ['../../dialogs/delete/user-delete.dialog.css']
 })
 export class DeleteDialogComponent {
 

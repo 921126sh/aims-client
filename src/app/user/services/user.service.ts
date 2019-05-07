@@ -11,42 +11,61 @@ export class UserService {
      */
     private usersUrl: string = 'users';
 
-    constructor(private restService?: RestService) { }
-
+    /**
+     * 사용자 관리 서브젝트
+     */
     dataChange: BehaviorSubject<User[]> = new BehaviorSubject<User[]>([]);
-    
-    // Temporarily stores data from dialogs
+    get data(): User[] { return this.dataChange.value; }
+
+    /**
+     * 다이얼로그 데이터
+     */
     dialogData: any;
 
-    get data(): User[] {
-        return this.dataChange.value;
+    constructor(private restService?: RestService) {
     }
 
+    /**
+     * 다이얼로그 데이터를 반환한다.
+     * 
+     * @returns 다이얼로그 데이터
+     */
     getDialogData() {
         return this.dialogData;
     }
 
-    /** CRUD METHODS */
+    /**
+     * 사용자 목록을 조회요청한다.
+     */
     getAllUsers(): void {
         this.restService.read(this.usersUrl).subscribe(data => {
-            this.dataChange.next(data.userResponses);
+            this.dataChange.next(data.userResponses || []);
         },
             (error: HttpErrorResponse) => {
                 console.log(error.name + ' ' + error.message);
             });
     }
 
-    // DEMO ONLY, you can find working methods below
-    addUser(issue: User): void {
-        this.dialogData = issue;
+    /**
+     * 사용자 등록을 요청한다.
+     * 
+     * @param user 사용자
+     */
+    addUser(user: User): void {
+        this.dialogData = user;
     }
 
-    updateUser(issue: User): void {
-        this.dialogData = issue;
+    /**
+     * 사용자 수정을 요청한다.
+     * 
+     * @param user 사용자
+     */
+    updateUser(user: User): void {
+        this.dialogData = user;
     }
 
-    deleteUser(id: number): void {
-        console.log(id);
+    deleteUser(userId: string): void {
+        console.log(userId);
     }
 
     /**

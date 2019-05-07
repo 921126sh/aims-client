@@ -4,10 +4,10 @@ import { MatDialog, MatPaginator, MatSort } from "@angular/material";
 import { merge, Observable, BehaviorSubject, fromEvent } from "rxjs";
 import { map } from "rxjs/operators";
 import { DataSource } from "@angular/cdk/table";
-import { EditDialogComponent } from "./dialogs/edit/edit.dialog.component";
-import { AddDialogComponent } from "./dialogs/add/add.dialog.component";
+import { EditDialogComponent } from "./dialogs/edit/user-edit.dialog";
+import { UserAddDialogComponent } from "./dialogs/add/user-add.dialog";
 import { User } from "./model/user";
-import { DeleteDialogComponent } from "./dialogs/delete/delete.dialog.component";
+import { DeleteDialogComponent } from "./dialogs/delete/user-delete.dialog";
 import { UserService } from "./services/user.service";
 import { RestService } from "../core/services/rest.service";
 
@@ -80,8 +80,8 @@ export class UserComponent implements OnInit {
    * @param user 사용자
    */
   createRow(user: User) {
-    const dialogRef = this.matDialog.open(AddDialogComponent, {
-      data: { issue: user }
+    const dialogRef = this.matDialog.open(UserAddDialogComponent, {
+      data: {user: new User("", "", "", "")}
     });
 
     // 다이얼로그 종료 후 새로운 열을 추가한다.
@@ -200,8 +200,8 @@ export class DataProcHelper extends DataSource<User> {
 
     return merge(...displayDataChanges).pipe(map(() => {
       // 데이터 필터링
-      this.filteredData = this._userService.data.slice().filter((issue: User) => {
-        const searchStr = (issue.userId + issue.userNm + issue.userPw + issue.userDiv).toLowerCase();
+      this.filteredData = this._userService.data.slice().filter((user: User) => {
+        const searchStr = (user.userId + user.userNm + user.userPw + user.userDiv).toLowerCase();
         return searchStr.indexOf(this.filter.toLowerCase()) !== -1;
       });
 
