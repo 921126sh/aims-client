@@ -17,11 +17,6 @@
     </div>
 
     <mat-table #table [dataSource]="dataSource" matSort class="mat-cell">
-
-      <!--- Note that these columns can be defined in any order.
-                The actual rendered columns are set as a property on the row definition" -->
-
-      <!-- ID Column -->
       <ng-container matColumnDef="userId">
         <mat-header-cell *matHeaderCellDef mat-sort-header>userId</mat-header-cell>
         <mat-cell *matCellDef="let row">{{row.userId}}</mat-cell>
@@ -42,7 +37,6 @@
         <mat-cell *matCellDef="let row"> {{row.userDiv}}</mat-cell>
       </ng-container>
 
-      <!-- actions -->
       <ng-container matColumnDef="actions">
         <mat-header-cell *matHeaderCellDef>
           <button mat-icon-button color="primary" (click)="createRow()">

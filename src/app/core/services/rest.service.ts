@@ -2,7 +2,7 @@ import { HttpClient, HttpHandler, HttpHeaders, HttpParams, HttpResponse } from '
 import { Injectable } from '@angular/core';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { Observable } from 'rxjs';
-import { AppConfigService } from '../core/app-config.service';
+import { AppConfigService } from './app-config.service';
 import { finalize } from 'rxjs/operators';
 
 /**

@@ -1,7 +1,7 @@
 import {MediaMatcher} from '@angular/cdk/layout';
 import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
-import { FacadeService } from '../core/facade.service';
-import { UserService } from './services/user.service';
+import { FacadeService } from '../core/services/facade.service';
+import { UserService } from '../user/services/user.service';
 
 @Component({
   selector: 'app-home',

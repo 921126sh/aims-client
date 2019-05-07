@@ -2,7 +2,7 @@ import { Component, HostListener } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter, map, mergeMap } from 'rxjs/operators';
 import { AppConfig } from '../environments/environment';
-import { ElectronService } from './providers/electron.service';
+import { ElectronService } from './core/providers/electron.service';
 import { Title } from '@angular/platform-browser';
 
 @Component({

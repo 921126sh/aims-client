@@ -1,7 +1,7 @@
 import { Injectable, Injector } from "@angular/core";
-import { UserService } from "../home/services/user.service"
+import { UserService } from "../../user/services/user.service"
 import { BehaviorSubject } from "rxjs";
-import { User } from "../home/model/user";
+import { User } from "../../user/model/user";
 import { HttpErrorResponse } from "@angular/common/http";
 import { RestService } from "./rest.service";
 

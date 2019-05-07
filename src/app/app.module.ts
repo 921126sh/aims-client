@@ -9,16 +9,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // core
 import { AppRoutingModule } from './app-routing.module';
-import { AppConfigService } from './core/app-config.service';
-import { GlobalRefService } from './core/global-ref.service';
-import { RestService } from './core/rest.service';
+import { AppConfigService } from './core/services/app-config.service';
+import { GlobalRefService } from './core/services/global-ref.service';
+import { RestService } from './core/services/rest.service';
 
 // Block UI
 import { BlockUIModule } from 'ng-block-ui';
 
 // 일렉트론 서비스
-import { ElectronService } from './providers/electron.service';
-import { WebviewDirective } from './directives/webview.directive';
+import { ElectronService } from './core/providers/electron.service';
+import { WebviewDirective } from './core/directives/webview.directive';
 
 
 
@@ -29,9 +29,9 @@ import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
 
 // 다이얼로그
-import {AddDialogComponent} from './common/dialogs/add/add.dialog.component';
-import {EditDialogComponent} from './common/dialogs/edit/edit.dialog.component';
-import {DeleteDialogComponent} from './common/dialogs/delete/delete.dialog.component';
+import {AddDialogComponent} from './user/dialogs/add/add.dialog.component';
+import {EditDialogComponent} from './user/dialogs/edit/edit.dialog.component';
+import {DeleteDialogComponent} from './user/dialogs/delete/delete.dialog.component';
 
 export function loadConfig(config: AppConfigService) { return () => config.load(); };
 export function customHttpService(config: AppConfigService, handler: HttpHandler) {

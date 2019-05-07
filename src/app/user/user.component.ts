@@ -4,12 +4,12 @@ import { MatDialog, MatPaginator, MatSort } from "@angular/material";
 import { merge, Observable, BehaviorSubject, fromEvent } from "rxjs";
 import { map } from "rxjs/operators";
 import { DataSource } from "@angular/cdk/table";
-import { EditDialogComponent } from "../common/dialogs/edit/edit.dialog.component";
-import { AddDialogComponent } from "../common/dialogs/add/add.dialog.component";
-import { User } from "../home/model/user";
-import { DeleteDialogComponent } from "../common/dialogs/delete/delete.dialog.component";
-import { UserService } from "../home/services/user.service";
-import { RestService } from "../core/rest.service";
+import { EditDialogComponent } from "./dialogs/edit/edit.dialog.component";
+import { AddDialogComponent } from "./dialogs/add/add.dialog.component";
+import { User } from "./model/user";
+import { DeleteDialogComponent } from "./dialogs/delete/delete.dialog.component";
+import { UserService } from "./services/user.service";
+import { RestService } from "../core/services/rest.service";
 
 
 @Component({
