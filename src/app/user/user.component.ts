@@ -19,7 +19,7 @@ import { RestService } from "../core/services/rest.service";
   providers: [UserService, RestService]
 })
 export class UserComponent implements OnInit {
-  readonly displayedColumns = ['userId', 'userNm', 'userPw', 'userDiv', 'actions'];
+  readonly displayedColumns = ['userId', 'userNm', 'userPwd', 'userDiv', 'actions'];
   selRowIdx: number;
   dataSource: DataProcHelper | null;
   userId: string;
@@ -76,12 +76,10 @@ export class UserComponent implements OnInit {
 
   /**
    * 사용자를 신규등록 한다.
-   * 
-   * @param user 사용자
    */
-  createRow(user: User) {
+  createRow() {
     const dialogRef = this.matDialog.open(UserAddDialogComponent, {
-      data: {user: new User("", "", "", "")}
+      data: { 'userService': this.userService }
     });
 
     // 다이얼로그 종료 후 새로운 열을 추가한다.
@@ -99,14 +97,14 @@ export class UserComponent implements OnInit {
    * @param selRowIdx 선택된 행 인덱스
    * @param userId 사용자 식별자
    * @param userNm 사용자 명
-   * @param userPw 사용자 비밀번호
+   * @param userPwd 사용자 비밀번호
    * @param userDiv 사용자 구분
    */
-  updateRow(selRowIdx: number, userId: string, userNm: string, userPw: string, userDiv: string) {
+  updateRow(selRowIdx: number, userId: string, userNm: string, userPwd: string, userDiv: string) {
     this.userId = userId;
     this.selRowIdx = selRowIdx;
     const dialogRef = this.matDialog.open(EditDialogComponent, {
-      data: { userId: userId, userNm: userNm, userPw: userPw, userDiv: userDiv }
+      data: { userId: userId, userNm: userNm, userPwd: userPwd, userDiv: userDiv }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -127,14 +125,14 @@ export class UserComponent implements OnInit {
    * @param selRowIdx 선택된 행 인덱스
    * @param userId 사용자 식별자
    * @param userNm 사용자 명
-   * @param userPw 사용자 비밀번호
+   * @param userPwd 사용자 비밀번호
    * @param userDiv 사용자 구분
    */
-  deleteRow(selRowIdx: number, userId: string, userNm: string, userPw: string, userDiv: string) {
+  deleteRow(selRowIdx: number, userId: string, userNm: string, userPwd: string, userDiv: string) {
     this.selRowIdx = selRowIdx;
     this.userId = userId;
     const dialogRef = this.matDialog.open(DeleteDialogComponent, {
-      data: { userId: userId, userNm: userNm, userPw: userPw, userDiv: userDiv }
+      data: { userId: userId, userNm: userNm, userPwd: userPwd, userDiv: userDiv }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -201,7 +199,7 @@ export class DataProcHelper extends DataSource<User> {
     return merge(...displayDataChanges).pipe(map(() => {
       // 데이터 필터링
       this.filteredData = this._userService.data.slice().filter((user: User) => {
-        const searchStr = (user.userId + user.userNm + user.userPw + user.userDiv).toLowerCase();
+        const searchStr = (user.userId + user.userNm + user.userPwd + user.userDiv).toLowerCase();
         return searchStr.indexOf(this.filter.toLowerCase()) !== -1;
       });
 
@@ -235,7 +233,7 @@ export class DataProcHelper extends DataSource<User> {
       switch (this._sort.active) {
         case 'userId': [propertyA, propertyB] = [a.userId, b.userId]; break;
         case 'userNm': [propertyA, propertyB] = [a.userNm, b.userNm]; break;
-        case 'userPw': [propertyA, propertyB] = [a.userPw, b.userPw]; break;
+        case 'userPwd': [propertyA, propertyB] = [a.userPwd, b.userPwd]; break;
         case 'userDiv': [propertyA, propertyB] = [a.userDiv, b.userDiv]; break;
       }
 

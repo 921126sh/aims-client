@@ -13,7 +13,7 @@
     <!--Textarea for demo purposes-->
     <div class="form">
       <mat-form-field color="accent">
-        <textarea matInput #input class="form-control" placeholder="비밀번호" [(ngModel)]="user.userPw" name="pw"
+        <textarea matInput #input class="form-control" placeholder="비밀번호" [(ngModel)]="user.userPwd" name="pw"
           required></textarea>
         <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
       </mat-form-field>

@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { Observable, BehaviorSubject } from "rxjs";
 import { RestService } from "../../core/services/rest.service";
 import { User } from "../model/user";
-import { HttpErrorResponse } from "@angular/common/http";
+import { HttpErrorResponse, HttpParams } from "@angular/common/http";
 
 @Injectable()
 export class UserService {
@@ -16,11 +16,14 @@ export class UserService {
      */
     dataChange: BehaviorSubject<User[]> = new BehaviorSubject<User[]>([]);
     get data(): User[] { return this.dataChange.value; }
+    setDataChange(user: User) {
+        this.dataChange.value.push(user);
+    }
 
     /**
      * 다이얼로그 데이터
      */
-    dialogData: any;
+    public dialogData: any;
 
     constructor(private restService?: RestService) {
     }
@@ -53,6 +56,9 @@ export class UserService {
      */
     addUser(user: User): void {
         this.dialogData = user;
+        this.restService.create(this.usersUrl, user)
+        .subscribe(ob => {
+        });
     }
 
     /**

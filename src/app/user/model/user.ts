@@ -5,7 +5,7 @@ export class User {
      * @constructor
      * @param userId 사용자식별자
      * @param userNm 사용자명칭
-     * @param userPw 사용자 패스워드
+     * @param userPwd 사용자 패스워드
      * @param userIp 사용자 Ip
      * @param validExpDate 계정 만료일자
      * @param pwdChgDate 비밀번호 변경 일자
@@ -15,7 +15,7 @@ export class User {
     constructor(
         public userId: string,
         public userNm: string,
-        public userPw: string,
+        public userPwd: string,
         public userDiv: string
     ) { }
 
@@ -26,7 +26,7 @@ export class User {
      * @returns 생성된 객체
      */
     static create(src: User): User {
-        let newObzect = new User(src.userId, src.userNm, src.userPw, src.userDiv);
+        let newObzect = new User(src.userId, src.userNm, src.userPwd, src.userDiv);
         return newObzect;
     }
 }

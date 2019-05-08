@@ -3,28 +3,31 @@ import { Component, Inject } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { FormControl, Validators } from '@angular/forms';
 import { User } from '../../model/user';
-
+import { userRestrict } from '../../../core/services/app-config.service';
 @Component({
   selector: 'app-add.dialog',
   templateUrl: '../../dialogs/add/user-add.dialog.html',
-  styleUrls: ['../../dialogs/add/user-add.dialog.css'],
-  providers: [UserService]
+  styleUrls: ['../../dialogs/add/user-add.dialog.css']
 })
 
 export class UserAddDialogComponent {
+  userService: UserService;
+  user: User = new User("", "dd", "", "");
+
   constructor(public dialogRef: MatDialogRef<UserAddDialogComponent>,
-     @Inject(MAT_DIALOG_DATA) public user: User,
-     public userService: UserService
-    ) { }
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {
+    this.userService = data.userService;
+  }
 
   formControl = new FormControl('', [
     Validators.required
   ]);
 
   cars: any[] = [
-    {value: 'volvo', viewValue: 'Volvo'},
-    {value: 'saab', viewValue: 'Saab'},
-    {value: 'mercedes', viewValue: 'Mercedes'}
+    { value: 'MANAGER', viewValue: 'Volvo' },
+    { value: 'MANAGER', viewValue: 'Saab' },
+    { value: 'MANAGER', viewValue: 'Mercedes' }
   ];
 
   getErrorMessage() {
@@ -44,6 +47,6 @@ export class UserAddDialogComponent {
    * 사용자 등록을 요청한다.
    */
   public confirmAdd(): void {
-    this.userService.addUser(this.user);
+    this.userService.addUser(this.user)
   }
 }

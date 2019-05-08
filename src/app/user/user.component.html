@@ -27,9 +27,9 @@
         <mat-cell *matCellDef="let row"> {{row.userNm}}</mat-cell>
       </ng-container>
 
-      <ng-container matColumnDef="userPw">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>userPw</mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.userPw}}</mat-cell>
+      <ng-container matColumnDef="userPwd">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>userPwd</mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.userPwd}}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="userDiv">
@@ -46,11 +46,11 @@
 
         <mat-cell *matCellDef="let row; let i=index;">
           <button mat-icon-button color="accent"
-            (click)="updateRow(i, row.userId, row.userNm, row.userPw, row.userDiv)">
+            (click)="updateRow(i, row.userId, row.userNm, row.userPwd, row.userDiv)">
             <mat-icon aria-label="Edit">edit</mat-icon>
           </button>
 
-          <button mat-icon-button color="accent" (click)="deleteRow(i, row.userId, row.userNm, row.userPw, row.userDiv)">
+          <button mat-icon-button color="accent" (click)="deleteRow(i, row.userId, row.userNm, row.userPwd, row.userDiv)">
             <mat-icon aria-label="Delete">delete</mat-icon>
           </button>
         </mat-cell>

@@ -176,7 +176,7 @@ export class RestService {
    * @param data 요청데이터
    * @returns 거래 응답객체
    */
-  public create(url: string, params?: HttpParams, data?: any): Observable<any> {
+  public create(url: string, data?: any, params?: HttpParams): Observable<any> {
     //거래를 시작하기전 화면을 잠근다.
     this.blockUI.start();
 
