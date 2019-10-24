@@ -57,8 +57,8 @@ export class UserService {
     addUser(user: User): void {
         this.dialogData = user;
         this.restService.create(this.usersUrl, user)
-        .subscribe(ob => {
-        });
+            .subscribe(ob => {
+            });
     }
 
     /**
@@ -79,5 +79,12 @@ export class UserService {
      */
     getUsers(): Observable<User[]> {
         return this.restService.read(this.usersUrl).pipe();
+    }
+    validateUser(userId: string, userPw: string): Observable<User> {
+        const params = new HttpParams()
+            .set('userId', userId)
+            .set('userPw', userPw);
+
+        return this.restService.read(`${this.usersUrl}`, params).pipe();
     }
 }
