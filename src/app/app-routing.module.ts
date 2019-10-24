@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserComponent } from './user/user.component';
+import { LoginComponent } from './common/login.component';
 import { ClinicComponent } from './clinic';
 import { HealthComponent } from './health';
 import { MediComponent } from './medi';
@@ -10,11 +11,16 @@ import { DavinciNoteComponent } from './davinciNote';
 import { ConferenceComponent } from './conference';
 
 const routes: Routes = [
-    // {
-	// 	path: '',
-	// 	redirectTo: '/user',
-	// 	pathMatch: 'full'
-	// },
+    {
+		path: '',
+		redirectTo: 'clinic',
+		pathMatch: 'full'
+	},
+    {
+        path: 'login',
+        component: LoginComponent,
+        data: { title: '로그인' }
+    },
     {
         path: 'dashboard',
         component: DashboardComponent,

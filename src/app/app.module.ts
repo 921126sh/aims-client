@@ -25,6 +25,7 @@ import { AppComponent } from './app.component';
 import { SideLayoutComponent } from './common/side-layout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserComponent } from './user/user.component';
+import { LoginComponent } from './common/login.component';
 import { ClinicComponent } from './clinic';
 import { HealthComponent } from './health';
 import { MediComponent } from './medi';
@@ -62,7 +63,7 @@ import {
   declarations: [
     AppComponent,
     SideLayoutComponent,
-    
+    LoginComponent,
     DashboardComponent,
     ClinicComponent,
     HealthComponent,
