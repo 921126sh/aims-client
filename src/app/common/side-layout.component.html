@@ -26,10 +26,6 @@
         <mat-icon routerLink="/conference" mat-list-icon>menu</mat-icon>
         <h4 mat-line *ngIf="isExpanded">컨퍼런스</h4>
       </mat-list-item>
-      <mat-list-item>
-        <mat-icon routerLink="/tasks" mat-list-icon>menu</mat-icon>
-        <h4 mat-line *ngIf="isExpanded">Follow-up Tasks</h4>
-      </mat-list-item>
     </mat-nav-list>
 
     <button mat-mini-fab (click)="isExpanded = !isExpanded" color="warn"

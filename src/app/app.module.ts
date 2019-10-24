@@ -26,6 +26,10 @@ import { SideLayoutComponent } from './common/side-layout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserComponent } from './user/user.component';
 import { ClinicComponent } from './clinic';
+import { HealthComponent } from './health';
+import { MediComponent } from './medi';
+import { DavinciNoteComponent } from './davinciNote';
+import { ConferenceComponent } from './conference';
 
 // 다이얼로그
 import {UserAddDialogComponent} from './user/dialogs/add/user-add.dialog';
@@ -61,7 +65,11 @@ import {
     
     DashboardComponent,
     ClinicComponent,
-
+    HealthComponent,
+    MediComponent,
+    DavinciNoteComponent,
+    ConferenceComponent,
+    
     UserComponent,
     WebviewDirective,
     UserAddDialogComponent,
