@@ -1,6 +1,4 @@
-import { MediaMatcher } from '@angular/cdk/layout';
-import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
-import { FacadeService } from '../core/services/facade.service';
+import { Component } from '@angular/core';
 import { UserService } from '../user/services/user.service';
 import { Router } from '@angular/router';
 @Component({
@@ -27,7 +25,7 @@ export class LoginComponent {
    * 로그인을 진행한다.
    */
   doLogin(): void {
-    this.userSvc.validateUser(this.userId, this.userPw).subscribe(res => {
+    this.userSvc.validateUser(this.userId, this.userPw).subscribe(() => {
       if (true /** 인증결과 */) {
         this.router.navigate(['/dashboard']);
       }
