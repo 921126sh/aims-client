@@ -5,11 +5,11 @@ import { UserService } from '../user/services/user.service';
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.scss'],
   providers: [UserService, FacadeService]
 })
-export class HomeComponent implements OnInit {
+export class DashboardComponent implements OnInit {
   constructor(){}
 
   ngOnInit(): void {

@@ -2,21 +2,33 @@
   <mat-drawer #drawer mode="side" disableClose="true" opened="true">
 
     <mat-nav-list>
-      <mat-list-item routerLink="/home" routerLinkActive="active">
+      <mat-list-item routerLink="/dashboard" routerLinkActive="active">
         <mat-icon mat-list-icon>home</mat-icon>
-        <h4 mat-line *ngIf="isExpanded">홈</h4>
+        <h4 mat-line *ngIf="isExpanded">대시보드</h4>
       </mat-list-item>
-      <mat-list-item routerLink="/user" routerLinkActive="active" >
-        <mat-icon mat-list-icon>person</mat-icon>
-        <h4 mat-line *ngIf="isExpanded">사용자</h4>
-      </mat-list-item>
-      <mat-list-item>
-        <mat-icon mat-list-icon>people</mat-icon>
-        <h4 mat-line *ngIf="isExpanded">역할</h4>
-      </mat-list-item>
-      <mat-list-item>
+      <mat-list-item routerLink="/clinic" routerLinkActive="active" >
         <mat-icon mat-list-icon>menu</mat-icon>
-        <h4 mat-line *ngIf="isExpanded">메뉴</h4>
+        <h4 mat-line *ngIf="isExpanded">아이쿱 클리닉</h4>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon routerLink="/health" mat-list-icon>menu</mat-icon>
+        <h4 mat-line *ngIf="isExpanded">헬스쿱</h4>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon routerLink="/medi" mat-list-icon>menu</mat-icon>
+        <h4 mat-line *ngIf="isExpanded">메디쿱</h4>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon routerLink="/davinciNote" mat-list-icon>menu</mat-icon>
+        <h4 mat-line *ngIf="isExpanded">다빈치 노트</h4>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon routerLink="/conference" mat-list-icon>menu</mat-icon>
+        <h4 mat-line *ngIf="isExpanded">컨퍼런스</h4>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon routerLink="/tasks" mat-list-icon>menu</mat-icon>
+        <h4 mat-line *ngIf="isExpanded">Follow-up Tasks</h4>
       </mat-list-item>
     </mat-nav-list>
 

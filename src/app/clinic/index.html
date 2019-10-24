@@ -1,0 +1,234 @@
+
+
+  <div class="section no-pad-bot" ng-app="clinic">
+    <div class="container">
+      <br><br>
+      <h1 class="center title-text">아이쿱 클리닉</h1>
+      <div class="row center">
+        <h5 class=" col s12 light">의사를 위한 디지털 환자교육 플랫폼</h5>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+      
+      <div class="row center">
+        <button class="button__tab" [style.background]="tab === 0 ? '#03a9f4' : '#ffffff'" (click)="onTabClick(0)">Info</button>
+        <button class="button__tab" [style.background]="tab === 1 ? '#03a9f4' : '#ffffff'" (click)="onTabClick(1)">Managers</button>
+        <button class="button__tab" [style.background]="tab === 2 ? '#03a9f4' : '#ffffff'" (click)="onTabClick(2)">Web</button>
+        <button class="button__tab" [style.background]="tab === 3 ? '#03a9f4' : '#ffffff'" (click)="onTabClick(3)">Mobile</button>
+        <button class="button__tab" [style.background]="tab === 4 ? '#03a9f4' : '#ffffff'" (click)="onTabClick(4)">Admin</button>
+      </div>
+
+      <div *ngIf="tab === 0">
+        <div class="row title">
+          <span class="title__name">Infra</span>
+          <button class="button__crud" (click)="onTabClick()">삭제</button>
+          <button class="button__crud">수정</button>
+          <button class="button__crud">추가</button>
+        </div>
+
+        <div class="row table">
+          <table>
+            <thead>
+              <tr>
+                <th>Git</th>
+                <th>Git URL</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>firebase</td>
+                <td>www.naver.com</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    
+        <div class="row title">
+          <span class="title__name">Root</span>
+        </div>
+
+        <div class="row table">
+          <table>
+            <thead>
+              <tr>
+                <th>Management ID</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>davincinoteMaster@git.com</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div *ngIf="tab === 1">
+        <div class="row title">
+          <button class="button__crud" (click)="onTabClick()">삭제</button>
+          <button class="button__crud">수정</button>
+          <button class="button__crud">추가</button>
+        </div>
+  
+        <div class="row table">
+          <table>
+            <thead>
+              <tr>
+                <th>이름</th>
+                <th>직책</th>
+                <th>포지션</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>박현우</td>
+                <td>주임</td>
+                <td>프론트</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div *ngIf="tab === 2">
+        <div class="img__container">
+          <img src="assets/clinic.jpg" width="150" height="150" alt="clinic">
+          <div class="active__container">
+            <div class="row">
+              <span class="active__title">Test</span>
+              <button class="active__icon" [style.background]="tab === 0 ? 'lawngreen' : 'lawngreen'"  disabled></button>
+            </div>
+            <div class="row">
+              <span class="active__title">Live</span>
+              <button class="active__icon" [style.background]="tab === 0 ? 'lawngreen' : 'lawngreen'"  disabled></button>
+            </div>
+          </div>
+        </div>        
+        <div class="row title">
+          <span class="title__name">Host & End Point</span>
+          <button class="button__crud" (click)="onTabClick()">삭제</button>
+          <button class="button__crud">수정</button>
+          <button class="button__crud">추가</button>
+        </div>
+
+        <div class="row table">
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th>Frontend(Live)</th>
+                <th>Backend(Live)</th>
+                <th>Frontend(Test)</th>
+                <th>Backend(Test)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>IP</td>
+                <td>127.0.0.1</td>
+                <td>127.0.0.1</td>
+                <td>127.0.0.1</td>
+                <td>127.0.0.1</td>
+              </tr>
+              <tr>
+                <td>Domain</td>
+                <td>davincinote.com</td>
+                <td>davincinote.com</td>
+                <td>davincinote.com</td>
+                <td>davincinote.com</td>
+              </tr>
+              <tr>
+                <td>Infra</td>
+                <td colspan="4">git, aws, firebase...</td>
+              </tr>
+              <tr>
+                <td>Deploy</td>
+                <td colspan="4">Dockerm Jenkins</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="row title">
+          <span class="title__name">Today Logs</span>
+        </div>
+
+        <textarea class="log__form" disabled>
+            
+        </textarea>
+      </div>
+
+      <div *ngIf="tab === 3">
+          <div class="img__container">
+            <img src="assets/clinic.jpg" width="150" height="150" alt="clinic">
+            <div class="active__container">
+              <div class="row">
+                <span class="active__title">Android</span>
+                <a href="">www.naver.com</a>
+              </div>
+              <div class="row">
+                <span class="active__title">IOS</span>
+                <a href="">www.naver.com</a>
+              </div>
+            </div>
+          </div>        
+          <div class="row title">
+            <span class="title__name">Server</span>
+            <button class="button__crud" (click)="onTabClick()">삭제</button>
+            <button class="button__crud">수정</button>
+            <button class="button__crud">추가</button>
+          </div>
+  
+          <div class="row table">
+            <table>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Frontend(Live)</th>
+                  <th>Backend(Live)</th>
+                  <th>Frontend(Test)</th>
+                  <th>Backend(Test)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>IP</td>
+                  <td>127.0.0.1</td>
+                  <td>127.0.0.1</td>
+                  <td>127.0.0.1</td>
+                  <td>127.0.0.1</td>
+                </tr>
+                <tr>
+                  <td>Domain</td>
+                  <td>davincinote.com</td>
+                  <td>davincinote.com</td>
+                  <td>davincinote.com</td>
+                  <td>davincinote.com</td>
+                </tr>
+                <tr>
+                  <td>Infra</td>
+                  <td colspan="4">git, aws, firebase...</td>
+                </tr>
+                <tr>
+                  <td>Deploy</td>
+                  <td colspan="4">Dockerm Jenkins</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+  
+          <div class="row title">
+            <span class="title__name">Today Logs</span>
+          </div>
+  
+          <textarea class="log__form" disabled>
+              
+          </textarea>
+        </div>
+
+    </div>
+    <br><br>
+  </div>

@@ -20,13 +20,12 @@ import { BlockUIModule } from 'ng-block-ui';
 import { ElectronService } from './core/providers/electron.service';
 import { WebviewDirective } from './core/directives/webview.directive';
 
-
-
 // 컴포넌트
 import { AppComponent } from './app.component';
 import { SideLayoutComponent } from './common/side-layout.component';
-import { HomeComponent } from './home/home.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserComponent } from './user/user.component';
+import { ClinicComponent } from './clinic';
 
 // 다이얼로그
 import {UserAddDialogComponent} from './user/dialogs/add/user-add.dialog';
@@ -59,7 +58,10 @@ import {
   declarations: [
     AppComponent,
     SideLayoutComponent,
-    HomeComponent,
+    
+    DashboardComponent,
+    ClinicComponent,
+
     UserComponent,
     WebviewDirective,
     UserAddDialogComponent,
