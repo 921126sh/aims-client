@@ -18,7 +18,6 @@ export class HealthComponent implements OnInit {
     this.tab = 0;  
   }
   
-  onTabClick = (index) => {
-    this.tab = index;
-  }
+  onTabClick = (index) => this.tab = index;
+  
 }

@@ -11,14 +11,16 @@ import { UserService } from '../user/services/user.service';
 })
 export class ClinicComponent implements OnInit {
   tab: number;
+  isModify: boolean;
 
   constructor(){}
 
   ngOnInit(): void {
     this.tab = 0;  
+    this.isModify = false;
   }
   
-  onTabClick = (index) => {
-    this.tab = index;
-  }
+  onTabClick = (index) => this.tab = index;
+
+  onModify= () => this.isModify = !this.isModify;
 }
