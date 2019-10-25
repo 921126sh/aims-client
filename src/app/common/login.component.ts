@@ -32,12 +32,12 @@ export class LoginComponent {
     },
       error => {
         /**[TEMP- START] rest서비스 완료시 까지 임시 로직 */
-        if (true /** 인증결과 */) {
-          this.router.navigate(['/dashboard']);
-        }
+        // if (true /** 인증결과 */) {
+        //   this.router.navigate(['/dashboard']);
+        // }
         /**[TEMP - END] rest서비스 완료시 까지 임시 로직 */
 
-
+        alert(error)
         console.log('error: ', error);
       });
   }

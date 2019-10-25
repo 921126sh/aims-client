@@ -42,7 +42,7 @@ export class UpdateComponent {
         }
         /**[TEMP - END] rest서비스 완료시 까지 임시 로직 */
 
-
+        confirm(error)
         console.log('error: ', error);
       });
   }

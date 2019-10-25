@@ -4,35 +4,35 @@
     <mat-nav-list>
       <mat-list-item routerLink="/dashboard" routerLinkActive="active">
         <mat-icon mat-list-icon>home</mat-icon>
-        <h4 mat-line *ngIf="isExpanded">대시보드</h4>
+        <h4 mat-line *ngIf="isExpanded">Dashboard</h4>
       </mat-list-item>
       <mat-list-item routerLink="/clinic" routerLinkActive="active" >
         <mat-icon mat-list-icon>sports_kabaddi</mat-icon>
-        <h4 mat-line *ngIf="isExpanded">아이쿱 클리닉</h4>
+        <h4 mat-line *ngIf="isExpanded">iKoob Clinic</h4>
       </mat-list-item>
       <mat-list-item>
         <mat-icon routerLink="/health" mat-list-icon>sports_kabaddi</mat-icon>
-        <h4 mat-line *ngIf="isExpanded">헬스쿱</h4>
+        <h4 mat-line *ngIf="isExpanded">healthKoob</h4>
       </mat-list-item>
       <mat-list-item>
         <mat-icon routerLink="/medi" mat-list-icon>info</mat-icon>
-        <h4 mat-line *ngIf="isExpanded">메디쿱</h4>
+        <h4 mat-line *ngIf="isExpanded">mediKoob</h4>
       </mat-list-item>
       <mat-list-item>
         <mat-icon routerLink="/davinciNote" mat-list-icon>group</mat-icon>
-        <h4 mat-line *ngIf="isExpanded">다빈치 노트</h4>
+        <h4 mat-line *ngIf="isExpanded">davinci Note</h4>
       </mat-list-item>
       <mat-list-item>
         <mat-icon routerLink="/conference" mat-list-icon>speaker_notes</mat-icon>
-        <h4 mat-line *ngIf="isExpanded">컨퍼런스</h4>
+        <h4 mat-line *ngIf="isExpanded">conference</h4>
       </mat-list-item>
       <mat-list-item>
         <mat-icon routerLink="/update" mat-list-icon>system_update</mat-icon>
-        <h4 mat-line *ngIf="isExpanded">업데이트</h4>
+        <h4 mat-line *ngIf="isExpanded">update</h4>
       </mat-list-item>
     </mat-nav-list>
 
-    <button mat-mini-fab (click)="isExpanded = !isExpanded" color="warn"
+    <button mat-mini-fab (click)="isExpanded = !isExpanded" color="#ffffff"
       style="position: absolute; bottom:0; margin: 10px;">
       <mat-icon aria-label="Menu">menu</mat-icon>
     </button>
