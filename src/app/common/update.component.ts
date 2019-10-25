@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { UserService } from '../user/services/user.service';
 import { Router } from '@angular/router';
 @Component({
-  selector: 'app-home',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  selector: 'update',
+  templateUrl: './update.component.html',
+  styleUrls: ['./update.component.scss'],
   providers: [UserService]
 })
-export class LoginComponent {
+export class UpdateComponent {
   /**
    * 사용자 식별자
    */
@@ -17,6 +17,11 @@ export class LoginComponent {
    */
   userPw: string;
 
+  /**
+   * 업데이트 생성자다.
+   * @param userSvc 사용자 서비스
+   * @param router 라우터
+   */
   constructor( 
     private userSvc: UserService,
     private router: Router) { }
