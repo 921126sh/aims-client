@@ -7,7 +7,7 @@ import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
 })
 export class SideLayoutComponent implements OnInit {
   constructor(){}
-
+  isExpanded=true
   ngOnInit(): void {
     
   }

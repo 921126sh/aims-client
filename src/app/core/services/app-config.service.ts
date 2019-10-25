@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { GlobalRefService } from './global-ref.service';
 
 import { Observable } from 'rxjs';
-
+import { AppConfig } from '../../../environments/environment'
 export interface site {
     name: string,
     logUrl: string
@@ -60,40 +60,43 @@ export class AppConfigService {
                 observe.complete();
             }
             else {
+                this._config = AppConfig;
+                this._env = AppConfig.envType;
+                console.log(this._env, this._config);
+                observe.complete();
+                // let urlEnv: string = baseUrl + 'env.json';
+                // this.httpClient.get(urlEnv, getOption)
+                //     .subscribe(response => {
 
-                let urlEnv: string = baseUrl + 'env.json';
-                this.httpClient.get(urlEnv, getOption)
-                    .subscribe(response => {
+                //         //통신 응답에서 내용을 발췌한다.
 
-                        //통신 응답에서 내용을 발췌한다.
+                //         let resEnvData: any = (<any>response).body;
+                //         this._env = resEnvData;
 
-                        let resEnvData: any = (<any>response).body;
-                        this._env = resEnvData;
+                //         // 환경코드
+                //         let urlConfig: string = baseUrl + resEnvData.envType + '.json';
+                //         this.httpClient.get(urlConfig, getOption)
+                //             .subscribe(response => {
+                //                 //통신 응답에서 내용을 발췌한다.
+                //                 let resEnvData: any = (<any>response).body;
+                //                 this._config = resEnvData;
+                //                 observe.complete();
 
-                        // 환경코드
-                        let urlConfig: string = baseUrl + resEnvData.envType + '.json';
-                        this.httpClient.get(urlConfig, getOption)
-                            .subscribe(response => {
-                                //통신 응답에서 내용을 발췌한다.
-                                let resEnvData: any = (<any>response).body;
-                                this._config = resEnvData;
-                                observe.complete();
+                //                 // sets outer object
+                //                 this.site = resEnvData.site;
+                //                 this.userRestrict = resEnvData.userRestrict;
 
-                                // sets outer object
-                                this.site = resEnvData.site;
-                                this.userRestrict = resEnvData.userRestrict;
+                //                 console.log(this._env, this._config);
 
-                                console.log(this._env, this._config);
+                //             }, error => {
+                //                 //통신 오류내용을 발췌한다.
+                //                 observe.error(error || '환경구분별 설정파일 로딩에 실패하였습니다.');
+                //             });
 
-                            }, error => {
-                                //통신 오류내용을 발췌한다.
-                                observe.error(error || '환경구분별 설정파일 로딩에 실패하였습니다.');
-                            });
-
-                    }, error => {
-                        //통신 오류내용을 발췌한다.
-                        observe.error(error || '기본 설정파일 로딩에 실패하였습니다.');
-                    });
+                //     }, error => {
+                //         //통신 오류내용을 발췌한다.
+                //         observe.error(error || '기본 설정파일 로딩에 실패하였습니다.');
+                //     });
             }
         }).toPromise();
     }
