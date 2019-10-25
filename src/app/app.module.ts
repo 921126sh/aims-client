@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppConfigService } from './core/services/app-config.service';
 import { GlobalRefService } from './core/services/global-ref.service';
 import { RestService } from './core/services/rest.service';
+import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload'
 
 // Block UI
 import { BlockUIModule } from 'ng-block-ui';
@@ -77,6 +78,7 @@ import {
     UserAddDialogComponent,
     EditDialogComponent,
     DeleteDialogComponent,
+    FileSelectDirective
   ],
   imports: [
     BlockUIModule.forRoot(),

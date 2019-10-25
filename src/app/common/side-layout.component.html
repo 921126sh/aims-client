@@ -26,9 +26,15 @@
         <mat-icon routerLink="/conference" mat-list-icon>speaker_notes</mat-icon>
         <h4 mat-line *ngIf="isExpanded">conference</h4>
       </mat-list-item>
+<<<<<<< HEAD
       <mat-list-item>
         <mat-icon routerLink="/update" mat-list-icon>system_update</mat-icon>
         <h4 mat-line *ngIf="isExpanded">update</h4>
+=======
+      <mat-list-item routerLink="/update" routerLinkActive="active">
+        <mat-icon mat-list-icon>system_update</mat-icon>
+        <h4 mat-line *ngIf="isExpanded">업데이트</h4>
+>>>>>>> dc3bacd13957d8eadb722fc0be00e0e8aabe0888
       </mat-list-item>
     </mat-nav-list>
 
