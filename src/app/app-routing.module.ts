@@ -9,6 +9,7 @@ import { HealthComponent } from './health';
 import { MediComponent } from './medi';
 import { DavinciNoteComponent } from './davinciNote';
 import { ConferenceComponent } from './conference';
+import { UpdateComponent } from './common/update.component';
 
 const routes: Routes = [
     {
@@ -50,6 +51,11 @@ const routes: Routes = [
         path: 'conference',
         component: ConferenceComponent,
         data: { title: '컨퍼런스' }
+    },
+    {
+        path: 'update',
+        component: UpdateComponent,
+        data: { title: '업데이트' }
     },
 ];
 

@@ -7,24 +7,28 @@
         <h4 mat-line *ngIf="isExpanded">대시보드</h4>
       </mat-list-item>
       <mat-list-item routerLink="/clinic" routerLinkActive="active" >
-        <mat-icon mat-list-icon>menu</mat-icon>
+        <mat-icon mat-list-icon>sports_kabaddi</mat-icon>
         <h4 mat-line *ngIf="isExpanded">아이쿱 클리닉</h4>
       </mat-list-item>
       <mat-list-item>
-        <mat-icon routerLink="/health" mat-list-icon>menu</mat-icon>
+        <mat-icon routerLink="/health" mat-list-icon>sports_kabaddi</mat-icon>
         <h4 mat-line *ngIf="isExpanded">헬스쿱</h4>
       </mat-list-item>
       <mat-list-item>
-        <mat-icon routerLink="/medi" mat-list-icon>menu</mat-icon>
+        <mat-icon routerLink="/medi" mat-list-icon>info</mat-icon>
         <h4 mat-line *ngIf="isExpanded">메디쿱</h4>
       </mat-list-item>
       <mat-list-item>
-        <mat-icon routerLink="/davinciNote" mat-list-icon>menu</mat-icon>
+        <mat-icon routerLink="/davinciNote" mat-list-icon>group</mat-icon>
         <h4 mat-line *ngIf="isExpanded">다빈치 노트</h4>
       </mat-list-item>
       <mat-list-item>
-        <mat-icon routerLink="/conference" mat-list-icon>menu</mat-icon>
+        <mat-icon routerLink="/conference" mat-list-icon>speaker_notes</mat-icon>
         <h4 mat-line *ngIf="isExpanded">컨퍼런스</h4>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon routerLink="/update" mat-list-icon>system_update</mat-icon>
+        <h4 mat-line *ngIf="isExpanded">업데이트</h4>
       </mat-list-item>
     </mat-nav-list>
 

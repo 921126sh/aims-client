@@ -31,6 +31,7 @@ import { HealthComponent } from './health';
 import { MediComponent } from './medi';
 import { DavinciNoteComponent } from './davinciNote';
 import { ConferenceComponent } from './conference';
+import { UpdateComponent } from './common/update.component';
 
 // 다이얼로그
 import {UserAddDialogComponent} from './user/dialogs/add/user-add.dialog';
@@ -70,7 +71,7 @@ import {
     MediComponent,
     DavinciNoteComponent,
     ConferenceComponent,
-    
+    UpdateComponent,
     UserComponent,
     WebviewDirective,
     UserAddDialogComponent,

@@ -21,7 +21,7 @@ export interface userRestrict {
 export class AppConfigService {
     private _env: Object;
     private _config: Object;
-
+ 
     // outer objects
     public site: site;
     public userRestrict: userRestrict;
