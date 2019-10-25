@@ -1,54 +1,49 @@
 import { Component } from '@angular/core';
-import { UpdateService } from './services/update.service';
+import { UserService } from '../user/services/user.service';
 import { Router } from '@angular/router';
-import { FileUploader } from 'ng2-file-upload'
-
 @Component({
   selector: 'update',
   templateUrl: './update.component.html',
   styleUrls: ['./update.component.scss'],
-  providers: [UpdateService]
+  providers: [UserService]
 })
 export class UpdateComponent {
   /**
-   * 버전
+   * 사용자 식별자
    */
-  version: string;
+  userId: string;
   /**
-   * 배포일
+   * 사용자 비밀번호
    */
-  date: string;
-  /**
-   * 설명
-   */
-  notableChanges: string;
-
-  uploader: FileUploader = new FileUploader({
-    url: 'http://localhost:5656/upload'
-  });
-
-  fileInfo = {
-    originalname: '',
-    filename: ''
-  };
+  userPw: string;
 
   /**
    * 업데이트 생성자다.
    * @param userSvc 사용자 서비스
    * @param router 라우터
    */
-  constructor(private updateService: UpdateService) {
-    this.updateService.getUpdateInfo().subscribe(res => {
-      this.version = res["version"];
-      this.date = res["date"];
-      this.notableChanges = res["notableChanges"][0];
-    });
+  constructor( 
+    private userSvc: UserService,
+    private router: Router) { }
 
-    this.uploader.onCompleteItem = (item, res, status, header) => {
-      this.version = res["version"];
-      this.date = res["date"];
-      this.notableChanges = res["notableChanges"];
-    }
+  /**
+   * 로그인을 진행한다.
+   */
+  doLogin(): void {
+    this.userSvc.validateUser(this.userId, this.userPw).subscribe(() => {
+      if (true /** 인증결과 */) {
+        this.router.navigate(['/dashboard']);
+      }
+    },
+      error => {
+        /**[TEMP- START] rest서비스 완료시 까지 임시 로직 */
+        if (true /** 인증결과 */) {
+          this.router.navigate(['/dashboard']);
+        }
+        /**[TEMP - END] rest서비스 완료시 까지 임시 로직 */
+
+
+        console.log('error: ', error);
+      });
   }
-
 }
