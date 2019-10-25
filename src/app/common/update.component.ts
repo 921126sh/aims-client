@@ -17,11 +17,11 @@ export class UpdateComponent {
   /**
    * 배포일
    */
-  distDate: string;
+  date: string;
   /**
    * 설명
    */
-  discription: string;
+  notableChanges: string;
 
   uploader: FileUploader = new FileUploader({
     url: 'http://localhost:5656/upload'
@@ -40,37 +40,15 @@ export class UpdateComponent {
   constructor(private updateService: UpdateService) {
     this.updateService.getUpdateInfo().subscribe(res => {
       this.version = res["version"];
-      this.distDate = res["distDate"];
-      this.discription = res["discription"];
+      this.date = res["date"];
+      this.notableChanges = res["notableChanges"][0];
     });
 
-<<<<<<< HEAD
-  /**
-   * 로그인을 진행한다.
-   */
-  doLogin(): void {
-    this.userSvc.validateUser(this.userId, this.userPw).subscribe(() => {
-      if (true /** 인증결과 */) {
-        this.router.navigate(['/dashboard']);
-      }
-    },
-      error => {
-        /**[TEMP- START] rest서비스 완료시 까지 임시 로직 */
-        if (true /** 인증결과 */) {
-          this.router.navigate(['/dashboard']);
-        }
-        /**[TEMP - END] rest서비스 완료시 까지 임시 로직 */
-
-        confirm(error)
-        console.log('error: ', error);
-      });
-=======
     this.uploader.onCompleteItem = (item, res, status, header) => {
       this.version = res["version"];
-      this.distDate = res["distDate"];
-      this.discription = res["discription"];
+      this.date = res["date"];
+      this.notableChanges = res["notableChanges"];
     }
->>>>>>> dc3bacd13957d8eadb722fc0be00e0e8aabe0888
   }
 
 }

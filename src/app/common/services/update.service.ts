@@ -7,7 +7,7 @@ export class UpdateService {
     /**
      * 업데이트 URI
      */
-    private updatesUrl: string = 'update';
+    private updatesUrl: string = 'check-update';
 
     constructor(private restService?: RestService) {
     }
@@ -17,6 +17,6 @@ export class UpdateService {
      * 업데이트정보를 반환한다.
      */
     getUpdateInfo(): Observable<any> {
-        return this.restService.read(this.updatesUrl).pipe();
+        return this.restService.read(`${this.updatesUrl}/koob-store`).pipe();
     }
 }
