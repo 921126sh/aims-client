@@ -1,49 +1,54 @@
 import { Component } from '@angular/core';
-import { UserService } from '../user/services/user.service';
+import { UpdateService } from './services/update.service';
 import { Router } from '@angular/router';
+import { FileUploader } from 'ng2-file-upload'
+
 @Component({
   selector: 'update',
   templateUrl: './update.component.html',
   styleUrls: ['./update.component.scss'],
-  providers: [UserService]
+  providers: [UpdateService]
 })
 export class UpdateComponent {
   /**
-   * 사용자 식별자
+   * 버전
    */
-  userId: string;
+  version: string;
   /**
-   * 사용자 비밀번호
+   * 배포일
    */
-  userPw: string;
+  date: string;
+  /**
+   * 설명
+   */
+  notableChanges: string;
+
+  uploader: FileUploader = new FileUploader({
+    url: 'http://localhost:5656/upload'
+  });
+
+  fileInfo = {
+    originalname: '',
+    filename: ''
+  };
 
   /**
    * 업데이트 생성자다.
    * @param userSvc 사용자 서비스
    * @param router 라우터
    */
-  constructor( 
-    private userSvc: UserService,
-    private router: Router) { }
+  constructor(private updateService: UpdateService) {
+    this.updateService.getUpdateInfo().subscribe(res => {
+      this.version = res["version"];
+      this.date = res["date"];
+      this.notableChanges = res["notableChanges"][0];
+    });
 
-  /**
-   * 로그인을 진행한다.
-   */
-  doLogin(): void {
-    this.userSvc.validateUser(this.userId, this.userPw).subscribe(() => {
-      if (true /** 인증결과 */) {
-        this.router.navigate(['/dashboard']);
-      }
-    },
-      error => {
-        /**[TEMP- START] rest서비스 완료시 까지 임시 로직 */
-        if (true /** 인증결과 */) {
-          this.router.navigate(['/dashboard']);
-        }
-        /**[TEMP - END] rest서비스 완료시 까지 임시 로직 */
-
-
-        console.log('error: ', error);
-      });
+    this.uploader.onCompleteItem = (item, res, status, header) => {
+      this.version = res["version"];
+      this.date = res["date"];
+      this.notableChanges = res["notableChanges"];
+    }
   }
+
 }
