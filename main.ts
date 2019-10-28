@@ -1,6 +1,7 @@
 import { app, BrowserWindow, screen } from 'electron';
 import * as path from 'path';
 import * as url from 'url';
+import { updater as Updater } from './updater';
 
 let win, serve;
 const args = process.argv.slice(1);
@@ -38,6 +39,12 @@ function createWindow() {
   if (serve) {
     win.webContents.openDevTools();
   }
+
+  // Check for updates !!!!!
+  win.webContents.once("did-frame-finish-load", function (event) {
+    let x = new Updater();
+    x.init();
+  })
 
   // Emitted when the window is closed.
   win.on('closed', () => {

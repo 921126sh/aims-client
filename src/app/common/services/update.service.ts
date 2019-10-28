@@ -7,7 +7,7 @@ export class UpdateService {
     /**
      * 업데이트 URI
      */
-    private updatesUrl: string = 'check-update';
+    private updatesUrl: string = 'update';
 
     constructor(private restService?: RestService) {
     }

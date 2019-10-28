@@ -11,13 +11,34 @@
 
     <hr>
 
-    <input type='file' name='single' ng2FileSelect [uploader]='uploader'>
-
-    <!-- <button type='button' (click)="uploader.uplodAll()">
-        <span>upload</span>
-    </button> -->
-
-    <button mat-icon-button color="accent" (click)="uploader.uplodAll()">
+    <button mat-icon-button color="accent" (click)="complete()">
         업로드!!!!
     </button>
+
+    <div class="row mt-15">
+        <div class="col-md-12">
+          <h5>업데이트 버전 정보 입력</h5>
+          <form id="dataForm1" name="dataForm1" class="form-sec">
+            <div class="row">
+              <div class="form-group col-sm-4">
+                <label class="control-label">버전:</label>
+                <input class="form-control" placeholder="버전" value="2.0.4" [(ngModel)]="uploadFileInfo.version" name="version">
+              </div>
+              <div class="form-group col-sm-4">
+                <label class="control-label">등록일자:</label>
+                <input class="form-control" placeholder="등록일자" value="2019-10-30" [(ngModel)]="uploadFileInfo.date" name="date">
+              </div>
+              <div class="form-group col-sm-4">
+                <label class="control-label">파일명:</label>
+                <input type="file" class="col-sm-4" #uploaderFile ng2FileSelect [uploader]="uploader" name="fileName" />
+              </div>
+              <div class="form-group col-sm-12">
+                <label class="control-label">주요변경내용:</label>
+                <textarea class="form-control" class="form-control" value="test" placeholder="주요변경내용" rows="5" [(ngModel)]="uploadFileInfo.notableChanges"
+                  name="notableChanges"></textarea>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
 </div>
